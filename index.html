@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PC-project-K</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="top">
+        <header id="header">
+            <h1 id="logo">
+                <a href="javascript:;">
+                    <img src="img/logo.png" alt="">
+                </a>
+            </h1>
+            <div class="nav">
+                <ul class="navList">
+                    <li class="navLi">
+                        <a href="javascript:;">
+                            <div class="up"><img src="img/home_gruen.png" alt=""></div>
+                            <div class="down"><img src="img/home.png" alt=""></div>
+                        </a>
+                    </li>
+                    <li class="navLi">
+                        <a href="javascript:;">
+                            <div class="up">Course</div>
+                            <div class="down">Course</div>
+                        </a>
+                    </li>
+                    <li class="navLi">
+                        <a href="javascript:;">
+                            <div class="up">Works</div>
+                            <div class="down">Works</div>
+                        </a>
+                    </li>
+                    <li class="navLi">
+                        <a href="javascript:;">
+                            <div class="up">About</div>
+                            <div class="down">About</div>
+                        </a>
+                    </li>
+                    <li class="navLi">
+                        <a href="javascript:;">
+                            <div class="up">Team</div>
+                            <div class="down">Team</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="arrow"></div>
+        </header>
+    </div>
+    <section id="content">
+
+    </section>
+</div>
+</body>
+<script>
+    var arrow = document.querySelector('#wrap .top #header #arrow');
+    var navLis = document.querySelectorAll('#wrap .top #header .nav .navList .navLi');
+    var navUps = document.querySelectorAll('#wrap .top #header .nav .navList .navLi .up');
+    navUps[0].style.width='100%';
+    arrow.style.left = navLis[0].getBoundingClientRect().left + navLis[0].offsetWidth/2 + 'px';
+    for (var i = 0; i < navLis.length; i++) {
+        var item = navLis[i];
+        item.index=i;
+        item.onclick=function () {
+            for (var j = 0; j < navLis.length; j++) {
+                navUps[j].style.width='';
+            }
+            navUps[this.index].style.width='100%';
+            arrow.style.left = navLis[this.index].getBoundingClientRect().left + navLis[this.index].offsetWidth/2 + 'px';
+        }
+    }
+
+
+</script>
+</html>
